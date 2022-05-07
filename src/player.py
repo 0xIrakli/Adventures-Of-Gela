@@ -28,8 +28,8 @@ class Player:
         if keys[pygame.K_s]: self.v[1] =  self.speed
     
     def move(self, deltaT):
-        self.v[0] *= 0.85
-        self.v[1] *= 0.85
+        self.v[0] *= 0.8
+        self.v[1] *= 0.8
         self.pos[0] += self.v[0]#*deltaT*0.001
         self.pos[1] += self.v[1]#*deltaT*0.001
         
