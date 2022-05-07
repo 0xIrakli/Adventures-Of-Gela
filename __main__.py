@@ -27,7 +27,7 @@ def build_level(tilemap, level, level_n, res):
         for x in range(len(level[0])):
             img.paste(
                 rand.choice(tilemap[level_n][level[y][x]]),
-                box=(x * res, y * res, (y + 1) * res, (x + 1) * res)
+                box=(x * res, y * res, (x + 1) * res, (y + 1) * res)
             )
     img.save('img.png')
 
@@ -39,8 +39,6 @@ def init(size):
 win = init((WIDTH*RES, HEIGHT*RES))
 ress = 16
 tilemap = generate_tilemap(ress)
-
-print(tilemap)
 
 
 def main():
