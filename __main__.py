@@ -21,7 +21,7 @@ def main():
 
     game = Game()
     win = pygame.display.set_mode((500, 500))
-    game.create_level('assets/levels/0/tilemap.png', base, win)
+    game.create_level('assets/levels/tilemap.png', base, win)
     win = pygame.display.set_mode((game.level.width, game.level.height))
     while True:
         game.loop(win)

@@ -12,7 +12,7 @@ class Game:
         img = Image.open(tilemap_path)
 
         tilemap = generate_tilemap(16)
-        lev = build_level(tilemap, base, 0, 16)
+        lev = build_level(tilemap, base, 1, 16)
         lev = lev.resize((lev.width*4, lev.height*4), Image.Resampling.NEAREST)
         lev.save('background.png')
         self.level = lev
