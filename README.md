@@ -8,6 +8,7 @@ You wake up in a lab and find your body parts replaced with robotic counterparts
 - [X] movment system
 - [0.7X] rendering level and sprites
 - [ ] collisions
+- [ ] animations
 - [ ] shooting
 - [ ] level progression system
 - [ ] run timer

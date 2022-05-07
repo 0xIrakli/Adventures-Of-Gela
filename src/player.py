@@ -1,12 +1,12 @@
+from . import Entity, get_animation_frames
 import pygame
-from . import Entity
-
 
 class Player(Entity):
     speed = 5
     def __init__(self, pos):
         super().__init__(pos)
-
+        self.animation = get_animation_frames(Image.open('assets/animations/player.png'), res)
+        self.index = 0
     def update(self):
         self.look()
         self.move()
@@ -26,13 +26,7 @@ class Player(Entity):
     def move(self):
         self.v[0] *= 0.8
         self.v[1] *= 0.8
-
         super().move()
 
     def draw(self, win):
-        pygame.draw.ellipse(
-            win,
-            (90, 90, 240),
-            (self.x, self.y, 40, 40),
-            5,
-        )
+        win.blit(self.animation[self.index], self.animation[self.index].get_rect())
