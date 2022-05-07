@@ -13,7 +13,7 @@ class Boss(Entity):
         self.imgs = pygame.image.load('AAA.png')
 
     def update(self, player):
-        if player.bar >= 100:
+        if player.bar >= 800:
             self.alive = False
             player.bar = 0
 

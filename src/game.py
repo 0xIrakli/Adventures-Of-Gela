@@ -7,7 +7,8 @@ import pygame
 
 
 class Game:
-    def __init__(self):
+    def __init__(self, base):
+        self.base = base
         self.player = Player([100, 100])
         self.boss = Boss([0, 0])
         self.level_n = 0
@@ -50,11 +51,12 @@ class Game:
 
         if not self.boss.alive:
             if self.level_n > 4:
-                print('YOU WON YOU ARE FREE')
-                self.boss.alive = True
+                print('---------YOU WON YOU ARE FREE---------')
                 pygame.quit()
             else:
                 self.level_n += 1
+                self.boss.alive = True
+                self.create_level('assets/levels/tilemap.png', self.base, win)
         player_rect = self.player.get_bounding_rect()
 
         for projectile in self.projectiles:
@@ -62,6 +64,7 @@ class Game:
             projectile.draw(win)
 
             if player_rect.collidelist([projectile.get_bounding_rect()]) != -1:
+                print('---------YOU LOST---------')
                 quit()
 
         self.boss.draw(win)
