@@ -1,6 +1,5 @@
 from . import Player, Image, generate_tilemap, build_level, pygame
 
-
 class Game:
     def __init__(self):
         self.player = Player([10, 10])
