@@ -4,7 +4,6 @@ from src import *
 WIDTH = 16
 HEIGHT = 8
 
-
 def main():
     pygame.init()
 
@@ -17,7 +16,7 @@ def main():
         ] for i in range(HEIGHT)
     ]
 
-    game = Game()
+    game = Game(base)
     win = pygame.display.set_mode((500, 500))
     game.create_level('assets/levels/tilemap.png', base, win)
     width, height = size = (game.level.width, game.level.height)
