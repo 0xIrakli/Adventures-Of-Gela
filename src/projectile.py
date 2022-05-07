@@ -3,6 +3,7 @@ from . import Entity
 
 class Projectile(Entity):
     speed = 500
+    v = [-7, 0]
 
     def __init__(self, x, y):
         super().__init__([x, y])
@@ -13,7 +14,7 @@ class Projectile(Entity):
 
     def update(self):
         super().move()
-        
+
     def draw(self, win):
         pygame.draw.ellipse(
             win,
