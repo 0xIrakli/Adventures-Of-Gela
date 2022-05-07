@@ -3,6 +3,7 @@ from PIL import Image
 from .utils import generate_tilemap, build_level
 import pygame
 
+
 class Game:
     def __init__(self):
         self.player = Player([100, 100])
@@ -29,5 +30,5 @@ class Game:
             if event.type == pygame.QUIT:
                 quit()
 
-        self.player.update(walls)
         self.player.draw(win)
+        self.player.update(walls)
