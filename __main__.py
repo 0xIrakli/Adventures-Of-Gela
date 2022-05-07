@@ -1,4 +1,7 @@
-from init import *
+from src import *
+from player import Player
+
+win = init((800, 800))
 
 base = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -15,8 +18,8 @@ base = [
 
 levels = [
     {
-        1: Image.open('levels\\0\\wall.png'),
-        0: Image.open('levels\\0\\tile.png')
+        1: Image.open('levels/0/wall.png'),
+        0: Image.open('levels/0/tile.png')
     }
 ]
 
@@ -29,3 +32,15 @@ def build_levels(levels):
     img.save('img.png')
 
 build_levels(levels)
+
+def main():
+    player = Player([20, 20])
+    
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+                
+        player.draw(win)
+        disp.update()
+main()
