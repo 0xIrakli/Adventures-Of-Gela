@@ -10,7 +10,6 @@ HEIGHT = 8
 def main():
     pygame.init()
 
-    win = pygame.display.set_mode((WIDTH * REZ, HEIGHT * REZ))
     clock = pygame.time.Clock()
 
     base = [
@@ -21,12 +20,13 @@ def main():
     ]
 
     game = Game()
-    tilemap = game.create_level('assets/levels/0/tilemap.png', base)
-
+    win = pygame.display.set_mode((500, 500))
+    game.create_level('assets/levels/0/tilemap.png', base, win)
+    win = pygame.display.set_mode((game.level.width, game.level.height))
     while True:
         game.loop(win)
-        clock.tick(60)
         pygame.display.update()
+        clock.tick(60)
 
 if __name__ == '__main__':
     main()

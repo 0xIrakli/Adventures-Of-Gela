@@ -33,7 +33,7 @@ class Player(Entity):
     def draw(self, win):
         pygame.draw.ellipse(
             win,
-            (255, 110, 110),
+            (150, 150, 0),
             (self.x, self.y, 40, 40),
-            2
+            10,
         )
