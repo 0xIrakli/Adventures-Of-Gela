@@ -34,13 +34,8 @@ class Game:
             if event.type == pygame.QUIT:
                 quit()
 
-<<<<<<< HEAD
-        self.player.draw(win)
-        self.player.update(walls)
-=======
         self.boss.update()
         self.player.update(walls)
-        
+
         self.boss.draw(win)
         self.player.draw(win)
->>>>>>> 74678790ceccd5100220e5d63d644446f0447a01
