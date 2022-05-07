@@ -14,7 +14,11 @@ class Game:
         self.level = lev.resize(lev.width*4, lev.height*4, Image.Resampling.NEAREST)
         
     def loop(self, win):
-        win.fill((51, 51, 51))
+        # win.fill((51, 51, 51))
+
+        # ამაზე ამბობდი?
+        win.blit(self.level(), (0, 0))
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quit()
