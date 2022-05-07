@@ -15,6 +15,8 @@ class Game:
         self.level_surface = 0
         self.level_surface_rect = 0
 
+        self.proj_pos = 0
+
         self.projectiles = []
 
     def shoot_projectile(self, x, y):
@@ -57,8 +59,11 @@ class Game:
             projectile.update()
             projectile.draw(win)
 
-            if player_rect.collidelist(projectile.get_rect()) != -1:
+            if player_rect.collidelist([projectile.get_bounding_rect()]) != -1:
                 quit()
 
         self.boss.draw(win)
         self.player.draw(win)
+
+        self.shoot_projectile(win.get_width(), self.proj_pos)
+        self.proj_pos += 1
