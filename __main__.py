@@ -1,60 +1,33 @@
 from PIL import Image
 from src import *
-import pygame
 
-pygame.init()
 
-disp = pygame.display
-draw = pygame.draw
-
-RES = 64  # dava upscalebt im 8x8 spritebs pygameit
+REZ = 64  # dava upscalebt im 8x8 spritebs pygameit
 WIDTH = 16
 HEIGHT = 8
 
-img = Image.open('assets/levels/0/tilemap.png')
-
-base = [
-    [
-        (i % (HEIGHT - 1)) * (j % (WIDTH - 1)) > 0
-        for j in range(WIDTH)
-    ] for i in range(HEIGHT)
-]
-
-def build_level(tilemap, level, level_n, res):
-    img = Image.new("RGBA", (len(level[0]) * res, len(level) * res))
-
-    for y in range(len(level)):
-        for x in range(len(level[0])):
-            img.paste(
-                rand.choice(tilemap[level_n][level[y][x]]),
-                box=(x * res, y * res, (x + 1) * res, (y + 1) * res)
-            )
-
-    img.save('img.png')
-
-
-def init(size):
-    return disp.set_mode(size)
-
-
-win = init((WIDTH*RES, HEIGHT*RES))
-ress = 16
-tilemap = generate_tilemap(ress)
-
 
 def main():
-    build_level(tilemap, base, 0, ress)
-    player = Player([10, 10])
+    pygame.init()
+
+    win = pygame.display.set_mode((WIDTH * REZ, HEIGHT * REZ))
     clock = pygame.time.Clock()
 
-    while True:
-        win.fill((51, 51, 51))
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                quit()
+    base = [
+        [
+            (i % (HEIGHT - 1)) * (j % (WIDTH - 1)) > 0
+            for j in range(WIDTH)
+        ] for i in range(HEIGHT)
+    ]
 
-        player.update()
-        player.draw(win)
-        disp.update()
+    game = Game()
+    game.load_tilemap('assets/levels/0/tilemap.png', base)
+
+    while True:
+        game.loop(win)
         clock.tick(60)
-main()
+        pygame.display.update()
+
+
+if __name__ == '__main__':
+    main()
