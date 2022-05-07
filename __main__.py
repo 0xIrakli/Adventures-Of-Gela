@@ -14,9 +14,9 @@ HEIGHT = 8
 
 MOVEMENT = {
     pygame.K_a: [-1,  0],
-    pygame.K_d: [1,  0],
-    pygame.K_s: [0,  1],
-    pygame.K_w: [0, -1]
+    pygame.K_d: [ 1,  0],
+    pygame.K_s: [ 0,  1],
+    pygame.K_w: [ 0, -1]
 }
 
 img = Image.open('assets/levels/0/tilemap.png')
@@ -54,7 +54,6 @@ def generate_tilemap(res):
 win = init((WIDTH*REZ, HEIGHT*REZ))
 tilemap = generate_tilemap(16)
 
-
 def main():
     for j, i in enumerate(generate_tilemap(16)):
         i.save(f'{j}.png')
@@ -68,6 +67,5 @@ def main():
 
         player.update(win, clock.tick(60))
         disp.update()
-
 
 main()
