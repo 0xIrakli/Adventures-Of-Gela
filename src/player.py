@@ -7,13 +7,17 @@ class Player:
         self.speed = 4
     
     @property    
-    def x(self):return self.pos[0]
+    def x(self):
+        return self.pos[0]
     @property
-    def y(self):return self.pos[1]
+    def y(self):
+        return self.pos[1]
     @property    
-    def vx(self):return self.v[0]
+    def vx(self):
+        return self.v[0]
     @property
-    def vy(self):return self.v[1]
+    def vy(self):
+        return self.v[1]
     
     def update(self, win, deltaT):
         self.look()
