@@ -4,7 +4,7 @@ You wake up in a lab and find your body parts replaced with robotic counterparts
 
 # TODO
 
-- [ ] tilemap importer (imports png images as tilemap data)
+- [X] tilemap importer (imports png images as tilemap data)
 - [ ] movment system
 - [ ] collisions
 - [ ] shooting
