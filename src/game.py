@@ -21,7 +21,7 @@ class Game:
         self.level_surface = pygame.image.load("background.png").convert(win)
         self.level_surface_rect = self.level_surface.get_rect()
 
-    def loop(self, win, frame_count):
+    def loop(self, win):
         win.fill((0, 0, 0))
         win.blit(self.level_surface, self.level_surface_rect)
 

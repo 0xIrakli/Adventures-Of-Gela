@@ -24,7 +24,9 @@ def main():
 
     frame_count = 0
     while True:
-        game.loop(win, frame_count)
+        if frame_count % 10 == 0:
+            game.player.update_frame_index()
+        game.loop(win)
         pygame.display.update()
         clock.tick(60)
         frame_count += 1

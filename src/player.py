@@ -12,6 +12,13 @@ class Player(Entity):
         self.animation = get_animation_frames(
             Image.open('assets/animations/player.png'), 16)
         self.frame_index = 0
+        self.current_rot = 0
+        
+    def update_frame_index(self):
+        if abs(self.vx) + abs(self.vy) <= 0.1:
+            self.frame_index = 0
+        else:
+            self.frame_index = (self.frame_index + 1) %len(self.animation)
 
     def update(self):
         self.look()
@@ -34,9 +41,25 @@ class Player(Entity):
         self.v[1] *= 0.8
         super().move()
 
-    def draw(self, win):
-        win.blit(self.animation[int(self.frame_index)],
-                 self.animation[int(self.frame_index)].get_rect())
+    def check(self, img):
+        if self.v[0] >= 0.8 and self.v[1] >= 0.8:
+            self.current_rot = 135-self.current_rot
+        elif self.v[0] <= -0.8 and self.v[1] <= -0.8:
+            self.current_rot = 315-self.current_rot
+        elif self.v[0] >= 0.8 and self.v[1] <= -0.8:
+            self.current_rot = 45-self.current_rot
+        elif self.v[0] <= -0.8 and self.v[1] >= 0.8:
+            self.current_rot = 225-self.current_rot
+        elif self.v[0] >= 0.8:
+            self.current_rot = 90-self.current_rot
+        elif self.v[0] <= -0.8:
+            self.current_rot = 270-self.current_rot
+        elif self.v[1] >= 0.8:
+            self.current_rot = 180-self.current_rot
+        elif self.v[1] <= -0.8:
+            self.current_rot = 0-self.current_rot
+        return pygame.transform.rotate(img, self.current_rot)
 
-        self.frame_index += .1
-        self.frame_index %= len(self.animation)
+    def draw(self, win):
+        img = self.check(self.animation[int(self.frame_index)].copy())
+        win.blit(img, pygame.rect.Rect(self.x, self.y, self.x+img.get_width(), self.y+img.get_height()))
