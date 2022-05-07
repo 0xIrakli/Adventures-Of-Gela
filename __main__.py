@@ -30,13 +30,15 @@ levels = [
     }
 ]
 
+
 def build_levels(levels):
-    img = Image.new("RGB", ( len(base[0])*8, len(base)*8 ))
+    img = Image.new("RGB", (len(base[0])*8, len(base)*8))
     for level in levels:
         for y in range(len(base)):
             for x in range(len(base[0])):
                 img.paste(level[base[y][x]], box=(x*8, y*8, (x+1)*8, (y+1)*8))
     img.save('img.png')
+
 
 def main():
     player = Player([10, 10])
@@ -46,7 +48,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quit()
-                
-        player.update(win, clock.tick(60))        
+
+        player.update(win, clock.tick(60))
         disp.update()
+
+
 main()
