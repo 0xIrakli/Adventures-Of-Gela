@@ -15,6 +15,7 @@ class Player(Entity):
         self.frame_index = 0
         self.current_rot = 0
         self.lastpos = []
+        self.bar = 0
 
     def update_frame_index(self):
         if abs(self.vx) + abs(self.vy) <= 0.2:
@@ -47,6 +48,8 @@ class Player(Entity):
         elif l == 3:
             self.pos[0] += self.speed
             self.v[0] *= 0
+            
+        self.bar += 1
 
     def look(self):
         keys = pygame.key.get_pressed()
