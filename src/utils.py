@@ -25,5 +25,5 @@ def build_level(tilemap, level, level_n, res):
                 rand.choice(tilemap[level_n][level[y][x]]),
                 box=(x * res, y * res, (x + 1) * res, (y + 1) * res)
             )
-
-    img.save('img.png')
+            
+    return img

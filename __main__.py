@@ -21,13 +21,12 @@ def main():
     ]
 
     game = Game()
-    game.load_tilemap('assets/levels/0/tilemap.png', base)
+    tilemap = game.create_level('assets/levels/0/tilemap.png', base)
 
     while True:
         game.loop(win)
         clock.tick(60)
         pygame.display.update()
-
 
 if __name__ == '__main__':
     main()
