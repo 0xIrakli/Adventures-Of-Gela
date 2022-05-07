@@ -1,3 +1,4 @@
+from .projectile import Projectile
 from .player import Player
 from .boss import Boss
 from PIL import Image
@@ -12,6 +13,11 @@ class Game:
         self.level = 0
         self.level_surface = 0
         self.level_surface_rect = 0
+
+        self.projectiles = []
+
+    def shoot_projectile(self, x, y):
+        self.projectiles.append(Projectile(x, y))
 
     def create_level(self, tilemap_path, base, win):
         img = Image.open(tilemap_path)
@@ -36,6 +42,15 @@ class Game:
 
         self.boss.update()
         self.player.update(walls)
+
+        player_rect = player.get_bounding_rect()
+
+        for projectile in self.projectiles:
+            projectile.update()
+            projectile.draw(win)
+
+            if player_rect.collidelist(projectile.get_rect()) != -1:
+                quit()
 
         self.boss.draw(win)
         self.player.draw(win)

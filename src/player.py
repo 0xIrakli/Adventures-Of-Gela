@@ -22,13 +22,16 @@ class Player(Entity):
         else:
             self.frame_index = (self.frame_index + 1) % len(self.animation)
 
-    def update(self, walls):
+    def get_bounding_rect(self):
         self.look()
         rect1 = self.handle_rotation(
             self.animation[self.frame_index]).get_rect()
         rect = pygame.rect.Rect(
             self.x+rect1.left, self.y+rect1.top, rect1.right, rect1.bottom)
-        l = rect.collidelist(walls)
+        return rect
+
+    def update(self, walls):
+        l = self.get_bounding_rect().collidelist(walls)
 
         if l == -1:
             self.move()

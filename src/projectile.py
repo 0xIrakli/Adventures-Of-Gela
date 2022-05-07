@@ -8,11 +8,11 @@ class Projectile(Entity):
     def __init__(self, x, y):
         super().__init__([x, y])
 
-    def draw(self, win):
-        pass
-
     def update(self):
         super().move()
+
+    def get_bounding_rect(self):
+        return pygame.rect.Rect(self.x - 10, self.y - 10, 20, 20)
 
     def draw(self, win):
         pygame.draw.ellipse(
