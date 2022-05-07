@@ -13,3 +13,11 @@ class Projectile(Entity):
 
     def update(self, delta_time):
         super().move(delta_time)
+        
+    def draw(self, win):
+        pygame.draw.ellipse(
+            win,
+            (255, 110, 110),
+            (self.x, self.y, 40, 40),
+            2
+        )

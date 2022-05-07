@@ -20,7 +20,6 @@ base = [
     ] for i in range(HEIGHT)
 ]
 
-
 def build_level(tilemap, level, level_n, res):
     img = Image.new("RGBA", (len(level[0]) * res, len(level) * res))
 

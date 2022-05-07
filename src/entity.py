@@ -22,8 +22,8 @@ class Entity:
         return self.v[1]
 
     def move(self, delta_time):
-        self.pos[0] += self.v[0] * delta_time * 0.001
-        self.pos[1] += self.v[1] * delta_time * 0.001
+        self.pos[0] += self.v[0]# * delta_time * 0.001
+        self.pos[1] += self.v[1]# * delta_time * 0.001
 
     def update(self, delta_time):
         raise Exception(
