@@ -1,4 +1,4 @@
-from . import Entity, get_animation_frames
+from . import Entity
 import pygame
 
 class Player(Entity):

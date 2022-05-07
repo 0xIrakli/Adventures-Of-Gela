@@ -1,5 +1,5 @@
 from PIL import Image
-from . import *
+import pygame
 
 def get_animation_frames(tilemap, res):
     frames = []

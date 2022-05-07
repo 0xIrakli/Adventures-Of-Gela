@@ -1,11 +1,9 @@
 from PIL import Image
 from src import *
 
-
 REZ = 64  # dava upscalebt im 8x8 spritebs pygameit
 WIDTH = 16
 HEIGHT = 8
-
 
 def main():
     pygame.init()
