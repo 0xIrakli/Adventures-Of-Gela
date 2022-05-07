@@ -13,15 +13,9 @@ class Boss(Entity):
         self.imgs = pygame.image.load('AAA.png')
 
     def update(self, player):
-<<<<<<< HEAD
         if player.bar >= 100:
             self.alive = False
             player.bar = 0
-=======
-        # if player.ready:
-        #     self.alive == False
-        ...
->>>>>>> 094f028cf6fe7f4a664e026f3b433baa534327aa
 
     def draw(self, win):
         win.blit(self.imgs, (self.x-(self.img.width//2),

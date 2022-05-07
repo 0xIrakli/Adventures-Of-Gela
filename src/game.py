@@ -1,4 +1,4 @@
-from .projectile import Projectile
+from .projectile import Projectile, ProjectileEmitter
 from .player import Player
 from .boss import Boss
 from PIL import Image
@@ -15,12 +15,12 @@ class Game:
         self.level_surface = 0
         self.level_surface_rect = 0
 
-        self.proj_pos = 0
+        self.count = 0
 
         self.projectiles = []
 
-    def shoot_projectile(self, x, y):
-        self.projectiles.append(Projectile(x, y))
+    def shoot_projectile(self):
+        self.projectiles.append(self.projectile_emitter.get_projectile())
 
     def create_level(self, tilemap_path, base, win):
         img = Image.open(tilemap_path)
@@ -34,6 +34,8 @@ class Game:
         self.level = lev
         self.level_surface = pygame.image.load("background.png").convert(win)
         self.level_surface_rect = self.level_surface.get_rect()
+
+        self.projectile_emitter = ProjectileEmitter(win)
 
     def loop(self, win, walls):
         win.fill((0, 0, 0))
@@ -65,5 +67,7 @@ class Game:
         self.boss.draw(win)
         self.player.draw(win)
 
-        self.shoot_projectile(win.get_width(), self.proj_pos)
-        self.proj_pos += 1
+        self.count += 1
+
+        if self.count % 10 == 0:
+            self.shoot_projectile()
