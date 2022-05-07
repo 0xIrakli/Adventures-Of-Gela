@@ -11,7 +11,7 @@ class Player(Entity):
         super().__init__(pos)
         self.animation = get_animation_frames(
             Image.open('assets/animations/player.png'), 16)
-        self.index = 0
+        self.frame_index = 0
 
     def update(self):
         self.look()
@@ -35,5 +35,8 @@ class Player(Entity):
         super().move()
 
     def draw(self, win):
-        win.blit(self.animation[self.index],
-                 self.animation[self.index].get_rect())
+        win.blit(self.animation[int(self.frame_index)],
+                 self.animation[int(self.frame_index)].get_rect())
+
+        self.frame_index += .1
+        self.frame_index %= len(self.animation)
