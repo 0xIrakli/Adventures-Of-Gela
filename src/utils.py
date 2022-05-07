@@ -1,7 +1,12 @@
+import pygame
+from PIL import Image
+import random as rand
+
+
 def get_animation_frames(tilemap, res):
     frames = []
     for x in range(0, tilemap.width, res):
-        img = tilemap.crop((x, y, x + res, y + res))
+        img = tilemap.crop((x, 0, x + res, res))
         frames.append(pygame.image.fromstring(
             img.tobytes(), img.size, img.mode))
     return frames

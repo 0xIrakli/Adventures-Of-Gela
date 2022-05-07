@@ -1,9 +1,9 @@
 from PIL import Image
 from src import *
 
-REZ = 64  # dava upscalebt im 8x8 spritebs pygameit
 WIDTH = 16
 HEIGHT = 8
+
 
 def main():
     pygame.init()
@@ -24,11 +24,13 @@ def main():
     count = 0
     while True:
         if count % 10:
-            game.player.index = (game.player.index + 1) % len(game.player.animation)
+            game.player.index = (game.player.index +
+                                 1) % len(game.player.animation)
         game.loop(win)
         pygame.display.update()
         clock.tick(60)
-        count+=1
+        count += 1
+
 
 if __name__ == '__main__':
     main()

@@ -10,7 +10,7 @@ class Player(Entity):
     def __init__(self, pos):
         super().__init__(pos)
         self.animation = get_animation_frames(
-            Image.open('assets/animations/player.png'), res)
+            Image.open('assets/animations/player.png'), 16)
         self.index = 0
 
     def update(self):
