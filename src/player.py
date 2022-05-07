@@ -1,12 +1,18 @@
-from . import Entity
+from .entity import Entity
+from .utils import get_animation_frames
 import pygame
+from PIL import Image
+
 
 class Player(Entity):
     speed = 5
+
     def __init__(self, pos):
         super().__init__(pos)
-        self.animation = get_animation_frames(Image.open('assets/animations/player.png'), res)
+        self.animation = get_animation_frames(
+            Image.open('assets/animations/player.png'), res)
         self.index = 0
+
     def update(self):
         self.look()
         self.move()
@@ -29,4 +35,5 @@ class Player(Entity):
         super().move()
 
     def draw(self, win):
-        win.blit(self.animation[self.index], self.animation[self.index].get_rect())
+        win.blit(self.animation[self.index],
+                 self.animation[self.index].get_rect())
