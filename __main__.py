@@ -1,16 +1,16 @@
 from src import *
 
-win = init((800, 800))
+REZ = 64 #dava upscalebt im 8x8 spritebs pygameit
+WIDTH = 16
+HEIGHT = 8
+
+win = init((WIDTH*REZ, HEIGHT*REZ))
 MOVEMENT = {
     pygame.K_a: [-1, +0],
     pygame.K_d: [+1, +0],
     pygame.K_s: [+0, +1],
     pygame.K_w: [+0, -1]
 }
-
-
-WIDTH = 16
-HEIGHT = 8
 
 base = [
     [
