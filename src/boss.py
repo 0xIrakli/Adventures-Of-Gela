@@ -6,12 +6,12 @@ class Boss(Entity):
     def __init__(self, pos):
         super().__init__(pos)
         self.img = Image.open('assets/animations/boss.png')
-        self.img = self.img.resize(img.width*4, img.height*4)
+        self.img = self.img.resize((self.img.width*4, self.img.height*4), Image.Resampling.NEAREST)
         self.img.save('AAA.png')
-        self.img = pygame.image.load('AAA.png').convert(win)
+        self.imgs = pygame.image.load('AAA.png')
         
     def update(self):
         pass
 
     def draw(self, win):
-        win.blit(self.img, self.x-img.width, self.y-img.height)
+        win.blit(self.imgs, (self.x-(self.img.width//2), self.y-(self.img.height//2)))
