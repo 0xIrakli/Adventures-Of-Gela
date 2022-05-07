@@ -14,6 +14,7 @@ class Player(Entity):
             Image.open('assets/animations/player.png'), 16)
         self.frame_index = 0
         self.current_rot = 0
+        self.lastpos = []
 
     def update_frame_index(self):
         if abs(self.vx) + abs(self.vy) <= 0.1:
@@ -21,13 +22,22 @@ class Player(Entity):
         else:
             self.frame_index = (self.frame_index + 1) % len(self.animation)
 
-    def update(self):
+    def update(self, walls):
         self.look()
-        self.move()
-
+        rect1 = self.handle_rotation(self.animation[self.frame_index]).get_rect()
+        rect = pygame.rect.Rect(self.x+rect1.left, self.y+rect1.top, rect1.right, rect1.bottom)
+        l = rect.collidelist(walls)
+        if l != -1:
+            self.v = [0, 0]
+            self.pos = self.lastpos
+        else:
+            self.lastpos = self.pos
+            self.move()
+            #        print(list(map(round, self.pos)), list(map(round, self.lastpos)), l)
+            
     def look(self):
         keys = pygame.key.get_pressed()
-
+        
         if keys[pygame.K_a]:
             self.v[0] = -self.speed
         if keys[pygame.K_d]:
@@ -44,7 +54,6 @@ class Player(Entity):
 
     def handle_rotation(self, img):
         target = atan2(self.v[1], self.v[0]) * 180 / 3.1415926
-
         self.current_rot += target - self.current_rot
 
         return pygame.transform.rotate(img, -self.current_rot)
