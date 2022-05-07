@@ -53,8 +53,8 @@ def main():
             if event.type == pygame.QUIT:
                 quit()
 
-        player.update(clock.tick(60))
+        player.update()
         player.draw(win)
         disp.update()
-
+        clock.tick(60)
 main()

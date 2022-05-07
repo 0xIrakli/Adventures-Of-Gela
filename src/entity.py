@@ -25,7 +25,7 @@ class Entity:
         self.pos[0] += self.v[0]# * delta_time * 0.001
         self.pos[1] += self.v[1]# * delta_time * 0.001
 
-    def update(self, delta_time):
+    def update(self):
         raise Exception(
             f'Undefined error: {self.__name__} has no defined function update()'
         )

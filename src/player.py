@@ -3,14 +3,14 @@ from . import Entity
 
 
 class Player(Entity):
-    speed = 350
+    speed = 4
 
     def __init__(self, pos):
         super().__init__(pos)
 
-    def update(self, delta_time):
+    def update(self):
         self.look()
-        self.move(delta_time)
+        self.move()
 
     def look(self):
         keys = pygame.key.get_pressed()
