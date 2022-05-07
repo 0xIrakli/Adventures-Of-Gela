@@ -1,4 +1,7 @@
-from . import Player, Image, generate_tilemap, build_level, pygame
+from .player import Player
+from PIL import Image
+from .utils import generate_tilemap, build_level
+import pygame
 
 
 class Game:
@@ -18,7 +21,7 @@ class Game:
         self.level = lev
         self.level_surface = pygame.image.load("background.png").convert(win)
         self.level_surface_rect = self.level_surface.get_rect()
-        
+
     def loop(self, win):
         win.fill((0, 0, 0))
         win.blit(self.level_surface, self.level_surface_rect)
