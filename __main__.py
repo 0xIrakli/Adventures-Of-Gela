@@ -11,14 +11,6 @@ REZ = 64  # dava upscalebt im 8x8 spritebs pygameit
 WIDTH = 16
 HEIGHT = 8
 
-
-MOVEMENT = {
-    pygame.K_a: [-1,  0],
-    pygame.K_d: [ 1,  0],
-    pygame.K_s: [ 0,  1],
-    pygame.K_w: [ 0, -1]
-}
-
 img = Image.open('assets/levels/0/tilemap.png')
 
 base = [
@@ -43,29 +35,34 @@ def init(size):
     return disp.set_mode(size)
 
 
-def generate_tilemap(res):
-    tiles = []
-    tilemap = Image.open('assets/levels/0/tilemap.png')
-    for y in range(tilemap.height//res):
-        for x in range(tilemap.width//res):
-            tiles.append(image.crop((res*x, res*y, res, res)))
-    return tiles
+# def generate_tilemap(res):
+#     tiles = []
+#     tilemap = Image.open('assets/levels/0/tilemap.png')
+#     for y in range(tilemap.height//res):
+#         for x in range(tilemap.width//res):
+#             tiles.append(Image.crop((res*x, res*y, res, res)))
+#     return tiles
 
-win = init((WIDTH*REZ, HEIGHT*REZ))
-tilemap = generate_tilemap(16)
+
+win = init((WIDTH * REZ, HEIGHT * REZ))
+# tilemap = generate_tilemap(16)
+
 
 def main():
-    for j, i in enumerate(generate_tilemap(16)):
-        i.save(f'{j}.png')
+    # for j, i in enumerate(generate_tilemap(16)):
+    #     i.save(f'{j}.png')
     player = Player([10, 10])
     clock = pygame.time.Clock()
+
     while True:
         win.fill((51, 51, 51))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quit()
 
-        player.update(win, clock.tick(60))
+        player.update(clock.tick(60))
+        player.draw(win)
         disp.update()
+
 
 main()
