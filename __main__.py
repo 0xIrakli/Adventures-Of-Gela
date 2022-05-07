@@ -1,10 +1,10 @@
 from src import *
 
-REZ = 64 #dava upscalebt im 8x8 spritebs pygameit
+REZ = 64  # dava upscalebt im 8x8 spritebs pygameit
 WIDTH = 16
 HEIGHT = 8
 
-win = init((WIDTH*REZ, HEIGHT*REZ))
+win = init((WIDTH * REZ, HEIGHT * REZ))
 tilemap = generate_tilemap(16)
 
 MOVEMENT = {
@@ -30,11 +30,12 @@ levels = [
 
 
 def build_levels(levels):
-    img = Image.new("RGB", (len(base[0])*8, len(base)*8))
+    img = Image.new("RGB", (len(base[0]) * 8, len(base) * 8))
     for level in levels:
         for y in range(len(base)):
             for x in range(len(base[0])):
-                img.paste(level[base[y][x]], box=(x*8, y*8, (x+1)*8, (y+1)*8))
+                img.paste(level[base[y][x]], box=(
+                    x * 8, y * 8, (x + 1) * 8, (y + 1) * 8))
     img.save('img.png')
 
 
@@ -49,5 +50,6 @@ def main():
 
         player.update(win, clock.tick(60))
         disp.update()
+
 
 main()
