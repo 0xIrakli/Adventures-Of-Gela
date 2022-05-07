@@ -11,9 +11,6 @@ REZ = 64 #dava upscalebt im 8x8 spritebs pygameit
 WIDTH = 16
 HEIGHT = 8
 
-win = init((WIDTH*REZ, HEIGHT*REZ))
-tilemap = generate_tilemap(16)
-
 MOVEMENT = {
     pygame.K_a: [-1,  0],
     pygame.K_d: [ 1,  0],
@@ -49,9 +46,12 @@ def generate_tilemap(res):
             tiles.append(image.crop((res*x, res*y, res, res)))
     return tiles
 
+win = init((WIDTH*REZ, HEIGHT*REZ))
+tilemap = generate_tilemap(16)
+
 def main():
     for j, i in enumerate(generate_tilemap(16)):
-        i.save('{j}.png')
+        i.save(f'{j}.png')
     player = Player([10, 10])
     clock = pygame.time.Clock()
     while True:
