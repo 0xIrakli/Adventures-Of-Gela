@@ -2,7 +2,7 @@ from . import Image, rand
 
 
 def generate_tilemap(res):
-    tilemap = Image.open('assets/levels/0/tilemap.png')
+    tilemap = Image.open('assets/levels/tilemap.png')
     tiles = [
         [
             [

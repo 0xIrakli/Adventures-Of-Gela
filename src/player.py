@@ -3,7 +3,7 @@ from . import Entity
 
 
 class Player(Entity):
-    speed = 4
+    speed = 5
 
     def __init__(self, pos):
         super().__init__(pos)
@@ -33,7 +33,7 @@ class Player(Entity):
     def draw(self, win):
         pygame.draw.ellipse(
             win,
-            (150, 150, 0),
+            (90, 90, 240),
             (self.x, self.y, 40, 40),
-            10,
+            5,
         )
