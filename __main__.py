@@ -1,5 +1,4 @@
 from src import *
-from player import Player
 
 win = init((800, 800))
 MOVEMENT = {
