@@ -4,7 +4,6 @@ from . import Entity
 
 class Player(Entity):
     speed = 5
-
     def __init__(self, pos):
         super().__init__(pos)
 
