@@ -7,7 +7,7 @@ def get_animation_frames(tilemap, res):
     frames = []
     for x in range(0, tilemap.width, res):
         img = tilemap.crop((x, 0, x + res, res))
-        img = img.resize((img.width*4, img.height*4), Image.Resampling.NEAREST)
+        img = img.resize((img.width*4, img.height*4), 0)
         frames.append(pygame.image.fromstring(
             img.tobytes(), img.size, img.mode))
     return frames
