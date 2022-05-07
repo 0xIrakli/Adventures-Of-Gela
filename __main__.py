@@ -23,9 +23,8 @@ def main():
     win = pygame.display.set_mode((game.level.width, game.level.height))
     count = 0
     while True:
-        if count % 10:
-            game.player.index = (game.player.index +
-                                 1) % len(game.player.animation)
+        if count % 10 == 0:
+            game.player.index = (game.player.index + 1) % len(game.player.animation)
         game.loop(win)
         pygame.display.update()
         clock.tick(60)
