@@ -25,11 +25,12 @@ def main():
     rect = pygame.rect.Rect
     walls = [
         rect(0, 0, width, 64),
-        rect(0, 0, 64, height),
         rect(width-64, 0, 64, height),
-        rect(0, height-64, width, 64)
+        rect(0, height-64, width, 64),
+        rect(0, 0, 64, height)
     ]
     frame_count = 0
+
     while True:
         if frame_count % 10 == 0:
             game.player.update_frame_index()
@@ -37,6 +38,7 @@ def main():
         pygame.display.update()
         clock.tick(60)
         frame_count += 1
+
 
 if __name__ == '__main__':
     main()
