@@ -10,6 +10,7 @@ class Game:
     def __init__(self):
         self.player = Player([100, 100])
         self.boss = Boss([0, 0])
+        self.level_n = 0
         self.level = 0
         self.level_surface = 0
         self.level_surface_rect = 0
@@ -23,7 +24,7 @@ class Game:
         img = Image.open(tilemap_path)
 
         tilemap = generate_tilemap(16)
-        lev = build_level(tilemap, base, 1, 16)
+        lev = build_level(tilemap, base, self.level_n, 16)
         lev = lev.resize((lev.width*4, lev.height*4), 0)
         self.boss.pos[0] = lev.width-64
         self.boss.pos[1] = lev.height//2
@@ -40,10 +41,17 @@ class Game:
             if event.type == pygame.QUIT:
                 quit()
 
-        self.boss.update()
+        self.boss.update(self.player)
         self.player.update(walls)
 
-        player_rect = player.get_bounding_rect()
+        if not self.boss.alive:
+            if self.level_n > 4:
+                print('YOU WON YOU ARE FREE')
+                self.boss.alive = True
+                pygame.quit()
+            else:
+                self.level_n += 1
+        player_rect = self.player.get_bounding_rect()
 
         for projectile in self.projectiles:
             projectile.update()
