@@ -5,7 +5,7 @@ import pygame
 
 class Game:
     def __init__(self):
-        self.player = Player([10, 10])
+        self.player = Player([100, 100])
         self.level = 0
         self.level_surface = 0
         self.level_surface_rect = 0
@@ -21,7 +21,7 @@ class Game:
         self.level_surface = pygame.image.load("background.png").convert(win)
         self.level_surface_rect = self.level_surface.get_rect()
 
-    def loop(self, win):
+    def loop(self, win, walls):
         win.fill((0, 0, 0))
         win.blit(self.level_surface, self.level_surface_rect)
 
@@ -29,5 +29,5 @@ class Game:
             if event.type == pygame.QUIT:
                 quit()
 
-        self.player.update()
+        self.player.update(walls)
         self.player.draw(win)

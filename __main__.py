@@ -20,13 +20,20 @@ def main():
     game = Game()
     win = pygame.display.set_mode((500, 500))
     game.create_level('assets/levels/tilemap.png', base, win)
-    win = pygame.display.set_mode((game.level.width, game.level.height))
-
+    width, height = size = (game.level.width, game.level.height)
+    win = pygame.display.set_mode(size)
+    rect = pygame.rect.Rect
+    walls = [
+        rect(0, 0, width, 64),
+        rect(0, 0, 64, height),
+        rect(width-64, 0, 64, height),
+        rect(0, height-64, width, 64)
+    ]
     frame_count = 0
     while True:
         if frame_count % 10 == 0:
             game.player.update_frame_index()
-        game.loop(win)
+        game.loop(win, walls)
         pygame.display.update()
         clock.tick(60)
         frame_count += 1
