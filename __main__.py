@@ -15,7 +15,7 @@ img = Image.open('assets/levels/0/tilemap.png')
 
 base = [
     [
-        1 if (i % (HEIGHT - 1)) * (j % (WIDTH - 1)) > 0 else 0
+        (i % (HEIGHT - 1)) * (j % (WIDTH - 1)) > 0
         for j in range(WIDTH)
     ] for i in range(HEIGHT)
 ]
@@ -23,12 +23,14 @@ base = [
 
 def build_level(tilemap, level, level_n, res):
     img = Image.new("RGBA", (len(level[0]) * res, len(level) * res))
+
     for y in range(len(level)):
         for x in range(len(level[0])):
             img.paste(
                 rand.choice(tilemap[level_n][level[y][x]]),
                 box=(x * res, y * res, (x + 1) * res, (y + 1) * res)
             )
+
     img.save('img.png')
 
 
