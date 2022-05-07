@@ -15,12 +15,12 @@ img = Image.open('assets/levels/0/tilemap.png')
 
 base = [
     [
-        1 if (i % WIDTH) * (j % HEIGHT) > 0 else 0
-        for j in range(HEIGHT)
-    ] for i in range(WIDTH)
+        1 if (i % (HEIGHT - 1)) * (j % (WIDTH - 1)) > 0 else 0
+        for j in range(WIDTH)
+    ] for i in range(HEIGHT)
 ]
 
-
+    
 def build_level(tilemap, level, level_n, res):
     img = Image.new("RGBA", (len(level[0]) * res, len(level) * res))
     for y in range(len(level)):
@@ -39,7 +39,6 @@ ress = 16
 tilemap = generate_tilemap(ress)
 
 print(tilemap)
-
 
 def main():
     build_level(tilemap, base, 0, ress)
