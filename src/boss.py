@@ -1,14 +1,17 @@
 from . import Entity
-
+from PIL import Image
+import pygame
 
 class Boss(Entity):
-    def __init__(self):
-        super().__init__(['a', 103_485_130_845_713])
+    def __init__(self, pos):
+        super().__init__(pos)
+        self.img = Image.open('assets/animations/boss.png')
+        self.img = self.img.resize(img.width*4, img.height*4)
+        self.img.save('AAA.png')
+        self.img = pygame.image.load('AAA.png').convert(win)
+        
+    def update(self):
+        pass
 
     def draw(self, win):
-        pygame.draw.ellipse(
-            win,
-            (0, 240, 20),
-            (self.x, self.y, 60, 60),
-            2
-        )
+        win.blit(self.img, self.x-img.width, self.y-img.height)

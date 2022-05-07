@@ -1,4 +1,5 @@
 from .player import Player
+from .boss import Boss
 from PIL import Image
 from .utils import generate_tilemap, build_level
 import pygame
@@ -7,6 +8,7 @@ import pygame
 class Game:
     def __init__(self):
         self.player = Player([100, 100])
+        self.boss = Boss([0, 0])
         self.level = 0
         self.level_surface = 0
         self.level_surface_rect = 0
@@ -17,6 +19,8 @@ class Game:
         tilemap = generate_tilemap(16)
         lev = build_level(tilemap, base, 1, 16)
         lev = lev.resize((lev.width*4, lev.height*4), 0)
+        self.boss.pos[0] = lev.width-64
+        self.boss.pos[1] = lev.height//2
         lev.save('background.png')
         self.level = lev
         self.level_surface = pygame.image.load("background.png").convert(win)
@@ -30,5 +34,13 @@ class Game:
             if event.type == pygame.QUIT:
                 quit()
 
+<<<<<<< HEAD
         self.player.draw(win)
         self.player.update(walls)
+=======
+        self.boss.update()
+        self.player.update(walls)
+        
+        self.boss.draw(win)
+        self.player.draw(win)
+>>>>>>> 74678790ceccd5100220e5d63d644446f0447a01

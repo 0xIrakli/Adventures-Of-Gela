@@ -9,8 +9,7 @@ class Projectile(Entity):
         super().__init__([x, y])
 
     def draw(self, win):
-        # TODO: Irakli shen mixedav amas!
-        ...
+        pass
 
     def update(self):
         super().move()

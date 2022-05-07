@@ -17,7 +17,7 @@ class Player(Entity):
         self.lastpos = []
 
     def update_frame_index(self):
-        if abs(self.vx) + abs(self.vy) <= 0.1:
+        if abs(self.vx) + abs(self.vy) <= 0.2:
             self.frame_index = 0
         else:
             self.frame_index = (self.frame_index + 1) % len(self.animation)
