@@ -11,8 +11,8 @@ class Projectile(Entity):
         # TODO: Irakli shen mixedav amas!
         ...
 
-    def update(self, delta_time):
-        super().move(delta_time)
+    def update(self):
+        super().move()
         
     def draw(self, win):
         pygame.draw.ellipse(

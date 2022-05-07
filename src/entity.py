@@ -21,7 +21,7 @@ class Entity:
     def vy(self):
         return self.v[1]
 
-    def move(self, delta_time):
+    def move(self):
         self.pos[0] += self.v[0]# * delta_time * 0.001
         self.pos[1] += self.v[1]# * delta_time * 0.001
 

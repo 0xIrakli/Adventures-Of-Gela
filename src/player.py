@@ -24,11 +24,11 @@ class Player(Entity):
         if keys[pygame.K_s]:
             self.v[1] = self.speed
 
-    def move(self, delta_time):
+    def move(self):
         self.v[0] *= 0.8
         self.v[1] *= 0.8
 
-        super().move(delta_time)
+        super().move()
 
     def draw(self, win):
         pygame.draw.ellipse(

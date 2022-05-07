@@ -57,5 +57,4 @@ def main():
         player.draw(win)
         disp.update()
 
-
 main()
