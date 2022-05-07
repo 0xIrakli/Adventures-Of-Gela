@@ -4,6 +4,7 @@ from PIL import Image
 from .utils import generate_tilemap, build_level
 import pygame
 
+
 class Game:
     def __init__(self):
         self.player = Player([100, 100])
@@ -35,6 +36,6 @@ class Game:
 
         self.boss.update()
         self.player.update(walls)
-        
+
         self.boss.draw(win)
         self.player.draw(win)

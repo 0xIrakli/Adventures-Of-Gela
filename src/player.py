@@ -25,22 +25,29 @@ class Player(Entity):
 
     def update(self, walls):
         self.look()
-        rect1 = self.handle_rotation(self.animation[self.frame_index]).get_rect()
-        rect = pygame.rect.Rect(self.x+rect1.left, self.y+rect1.top, rect1.right, rect1.bottom)
+        rect1 = self.handle_rotation(
+            self.animation[self.frame_index]).get_rect()
+        rect = pygame.rect.Rect(
+            self.x+rect1.left, self.y+rect1.top, rect1.right, rect1.bottom)
         l = rect.collidelist(walls)
 
         if l == -1:
             self.move()
         elif l == 0:
             self.pos[1] += self.speed
-        if l == 1:
+            self.v[1] *= 0
+        elif l == 1:
             self.pos[0] += -self.speed
-        if l == 2:
+            self.v[0] *= 0
+        elif l == 2:
             self.pos[1] += -self.speed
-        if l == 3:
+            self.v[1] *= 0
+        elif l == 3:
             self.pos[0] += self.speed
+            self.v[0] *= 0
+            
         self.bar += 1
-        
+
     def look(self):
         keys = pygame.key.get_pressed()
 
@@ -59,7 +66,9 @@ class Player(Entity):
         super().move()
 
     def handle_rotation(self, img):
-        target = atan2(self.v[1], self.v[0]) * 180 / 3.1415926
+        target = atan2(self.v[1], self.v[0]) * 180 / \
+            3.1415926 if abs(self.v[0] * self.v[1]
+                             ) > 0.0001 else self.current_rot
         self.current_rot += target - self.current_rot
 
         return pygame.transform.rotate(img, -self.current_rot)
