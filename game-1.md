@@ -1,4 +1,4 @@
-Pick a composite integer between 1 and 20 exclusive and I will try to guess it
+Pick an integer between 1 and 20 inclusive and I will try to guess it
 
 ---
 
