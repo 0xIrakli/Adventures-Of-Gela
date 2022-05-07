@@ -1,4 +1,5 @@
 from . import Entity
+import pygame
 
 
 class Projectile(Entity):
