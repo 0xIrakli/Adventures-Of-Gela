@@ -5,6 +5,8 @@ WIDTH = 16
 HEIGHT = 8
 
 win = init((WIDTH*REZ, HEIGHT*REZ))
+tilemap = generate_tilemap(16)
+
 MOVEMENT = {
     pygame.K_a: [-1, +0],
     pygame.K_d: [+1, +0],
@@ -47,6 +49,5 @@ def main():
 
         player.update(win, clock.tick(60))
         disp.update()
-
 
 main()
