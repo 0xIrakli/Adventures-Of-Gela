@@ -1,23 +1,13 @@
-# Game 1
-
-
-
-<!-- Intro -->
+Intro text goes here
 
 ---
 
 1. Question #1
-   1. [answer one](2)
-   2. [answer two](3)
+   - [possible answer]("next question index")
+   - [a different possible answer]("next question index")
 
 2. Question #2
-   1. [answer one](3)
-   2. [answer two](4)
+   - [answer one](3)
+   - [answer two](4)
 
-3. Question #3
-   1. [answer one](4)
-   2. [answer two](5)
-
-4. Ending #1
-
-5. Ending #2
+...
