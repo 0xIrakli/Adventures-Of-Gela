@@ -39,6 +39,5 @@ def main():
         clock.tick(60)
         frame_count += 1
 
-
 if __name__ == '__main__':
     main()
