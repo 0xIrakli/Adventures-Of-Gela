@@ -11,13 +11,16 @@ class Game:
 
         tilemap = generate_tilemap(16)
         lev = build_level(tilemap, base, 0, 16)
-        self.level = lev.resize(lev.width*4, lev.height*4, Image.Resampling.NEAREST)
-        
+        self.level = lev.resize(
+            lev.width*4,
+            lev.height*4,
+            Image.Resampling.NEAREST
+        )
+
     def loop(self, win):
         # win.fill((51, 51, 51))
 
-        # ამაზე ამბობდი?
-        win.blit(self.level(), (0, 0))
+        win.blit(self.level, (0, 0))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
