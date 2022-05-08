@@ -3,8 +3,8 @@ import pygame
 
 
 class Projectile(Entity):
-    speed = 650
-    v = [-7, 0]
+    speed = 500
+    v = [-6, 0]
 
     def __init__(self, x, y):
         super().__init__([x, y])
@@ -13,14 +13,14 @@ class Projectile(Entity):
         super().move()
 
     def get_bounding_rect(self):
-        return pygame.rect.Rect(self.x - 10, self.y - 10, 20, 20)
+        return pygame.rect.Rect(self.x - 8, self.y - 8, 16, 16)
 
     def draw(self, win):
         pygame.draw.ellipse(
             win,
             (240, 240, 240),
             (self.x, self.y, 20, 20),
-            2
+            7
         )
 
 

@@ -72,5 +72,5 @@ class Game:
 
         self.count += 1
 
-        if self.count % 10 == 0:
+        if self.count % 20 == 0:
             self.shoot_projectile()
