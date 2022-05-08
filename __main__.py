@@ -1,6 +1,8 @@
 from PIL import Image
 from src import *
 
+
+# all combined=357 lines of code......actually not that much
 WIDTH = 16
 HEIGHT = 8
 
