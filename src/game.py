@@ -73,9 +73,5 @@ class Game:
 
         self.count += 1
 
-<<<<<<< HEAD
         if self.count % 15 == 0:
-=======
-        if self.count % 30 == 0:
->>>>>>> 63c2fe8c26fb473de3cb7b4464338bf5798ccc98
             self.shoot_projectile()
