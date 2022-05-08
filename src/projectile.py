@@ -3,7 +3,7 @@ import pygame
 
 
 class Projectile(Entity):
-    speed = 500
+    speed = 650
     v = [-7, 0]
 
     def __init__(self, x, y):
