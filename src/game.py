@@ -50,11 +50,11 @@ class Game:
         self.player.update(walls)
 
         if not self.boss.alive:
+            self.level_n += 1
             if self.level_n >= 4:
                 print('---------YOU WON YOU ARE FREE---------')
                 pygame.quit()
             else:
-                self.level_n += 1
                 self.boss.alive = True
                 self.create_level('assets/levels/tilemap.png', self.base, win)
         player_rect = self.player.get_bounding_rect()
@@ -72,5 +72,5 @@ class Game:
 
         self.count += 1
 
-        if self.count % 20 == 0:
+        if self.count % 15 == 0:
             self.shoot_projectile()
