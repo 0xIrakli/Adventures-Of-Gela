@@ -50,7 +50,7 @@ class Game:
         self.player.update(walls)
 
         if not self.boss.alive:
-            if self.level_n > 4:
+            if self.level_n >= 4:
                 print('---------YOU WON YOU ARE FREE---------')
                 pygame.quit()
             else:
