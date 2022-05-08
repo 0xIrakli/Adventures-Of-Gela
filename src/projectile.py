@@ -40,6 +40,6 @@ class ProjectileEmitter():
         self.c += self.a ** 2
         self.d += self.a / 3
 
-        y = self.b * self.c * self.d % self.win.get_height()
+        y = self.b * self.c * self.d % (self.win.get_height() - 128) + 64
 
         return Projectile(self.win.get_width(), y)
