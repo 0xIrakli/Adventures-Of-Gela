@@ -22,3 +22,24 @@ class Projectile(Entity):
             (self.x, self.y, 20, 20),
             2
         )
+
+
+class ProjectileEmitter():
+    def __init__(self, win):
+        self.win = win
+
+        self.a = 0
+        self.b = 0
+        self.c = 0
+        self.d = 0
+
+    def get_projectile(self):
+        self.a += 1
+
+        self.b += self.a
+        self.c += self.a ** 2
+        self.d += self.a / 3
+
+        y = self.b * self.c * self.d % self.win.get_height()
+
+        return Projectile(self.win.get_width(), y)
