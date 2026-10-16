@@ -1,4 +1,4 @@
-# AOG - Adventures Of Gela
+# AOG - Adventures Of Gela (GAMEJAM PROJECT)
 
 You wake up in a lab and find your body parts replaced with robotic counterparts.
 
